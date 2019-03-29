@@ -26,3 +26,7 @@
 # 功能說明
 
 1. 匯率查詢 (更新日期：2019/03/29)
+
+# Demo Video
+
+[Youtube](https://www.youtube.com/watch?v=n4xKjZCw3zE)
