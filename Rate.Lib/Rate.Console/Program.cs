@@ -57,7 +57,7 @@ namespace Rate
                            + " 下次更新時間為：" + Result.Expire.Value.ToString("yyyy/MM/dd HH:mm:ss.fff")
                            + "\r\n--------------------------------------------------------------------------------------------");
 
-            string Title = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}"
+            string Title = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}\r\n"
                 , SerialNo
                 , CalSpace(SerialNo, NoSpaceSize)
                 , Currencty
@@ -77,7 +77,7 @@ namespace Rate
             {
                 byte[] byteStr = Encoding.GetEncoding("big5").GetBytes(item.value.Currencty);
                 Console.WriteLine(
-                    string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11} \r\n"
+                    string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}\r\n"
                     , (item.index+1).ToString().PadLeft(2,'0')
                     , CalSpace((item.index + 1).ToString().PadLeft(2, '0'), NoSpaceSize)
                     , item.value.Currencty
@@ -98,7 +98,7 @@ namespace Rate
         public static void ShowEnumList()
         {
             List<EnumBank> EnumList = Program.EnumToList<EnumBank>();
-            string BankList = "請輸入要查詢的銀行代號\r\n";
+            string BankList = "\r\n請輸入要查詢的銀行代號\r\n";
             foreach (var item in EnumList.Select((value, index) => new { value, index }))
             {
                 if (item.index % 2 != 0)
