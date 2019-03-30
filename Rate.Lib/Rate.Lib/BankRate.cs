@@ -39,7 +39,7 @@ namespace Rate.Lib
 
         #region Helper
 
-        private static DataMeta XPathExpression(this Url BankUrl, EnumBank EnumBank)
+        private static DataMeta XPathExpression(this string BankUrl, EnumBank EnumBank)
         {
             var HtmlNode = BankUrl.GetHtmlNode();
 
@@ -53,7 +53,7 @@ namespace Rate.Lib
             return Result;
         }
 
-        private static HtmlNode GetHtmlNode(this Url BankUrl)
+        private static HtmlNode GetHtmlNode(this string BankUrl)
         {
             var Doc = BankUrl.GetHtmlDocument();
             if (Doc != null)
@@ -62,13 +62,13 @@ namespace Rate.Lib
                 return null;
         }
 
-        private static HtmlDocument GetHtmlDocument(this Url BankUrl)
+        private static HtmlDocument GetHtmlDocument(this string BankUrl)
         {
             try
             {
                 using (var Client = new System.Net.WebClient())
                 {
-                    byte[] HtmlBytes = Client.DownloadData(BankUrl.Value);
+                    byte[] HtmlBytes = Client.DownloadData(BankUrl);
                     if (HtmlBytes != null && HtmlBytes.Length != 0)
                     {
                         string HtmlStr = Encoding.UTF8.GetString(HtmlBytes);
@@ -88,7 +88,13 @@ namespace Rate.Lib
             }
         }
 
-        private static bool Expires(this List<DataMeta> Data, EnumBank EnumBank)
+        /// <summary>
+        /// 檢視資料是否過期
+        /// </summary>
+        /// <param name="Data"></param>
+        /// <param name="EnumBank"></param>
+        /// <returns></returns>
+        public static bool Expires(this List<DataMeta> Data, EnumBank EnumBank)
         {
             var Result = Data.Where(o => o.Key == EnumBank).FirstOrDefault();
             if (Result == null)
@@ -105,7 +111,7 @@ namespace Rate.Lib
             return false;
         }
 
-        private static Url GetRateUrl(this EnumBank EnumBank)
+        private static string GetRateUrl(this EnumBank EnumBank)
         {
             string UrlStr = string.Empty;
             switch (EnumBank)
@@ -121,7 +127,7 @@ namespace Rate.Lib
                     UrlStr = @"https://rate.bot.com.tw/xrt/all/day";
                     break;
             }
-            return new Url(UrlStr);
+            return UrlStr;
         }
         #endregion
 
