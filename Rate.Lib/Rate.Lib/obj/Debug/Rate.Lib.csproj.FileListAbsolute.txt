@@ -27,3 +27,4 @@ E:\Project\Private\Rate\Rate.Lib\Rate.Lib\obj\Debug\Rate.Lib.csproj.CoreCompileI
 E:\Project\Private\Rate\Rate.Lib\Rate.Lib\obj\Debug\Rate.Lib.csproj.CopyComplete
 E:\Project\Private\Rate\Rate.Lib\Rate.Lib\obj\Debug\Rate.Lib.dll
 E:\Project\Private\Rate\Rate.Lib\Rate.Lib\obj\Debug\Rate.Lib.pdb
+E:\Project\Private\Rate\Rate.Lib\Rate.Lib\obj\Debug\Rate.Lib.csprojAssemblyReference.cache

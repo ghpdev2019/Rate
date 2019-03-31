@@ -102,7 +102,7 @@ namespace Rate.Lib
                 return true;
             }
 
-            if (Result.Expire <= DateTime.Now)
+            if (Result.Expire <= MyTimeZone.Today)
             {
                 Data.Remove(Result);
                 return true;
